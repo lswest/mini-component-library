@@ -34,7 +34,7 @@ const ProgressBar = ({ value, size }) => {
       style={styles}
     >
       <VisuallyHidden>{value} %</VisuallyHidden>
-      <ProgressBarInner value={value} maxed={value === 100} />
+      <ProgressBarInner value={value} maxed={value >= 99} />
     </ProgressWrapper>
   );
 };
@@ -55,6 +55,8 @@ const ProgressBarInner = styled.div`
   height: 100%;
   width: ${(props) => props.value}%;
   border-radius: inherit;
+  border-top-right-radius: ${(props) => (props.maxed ? "inherit" : "0")};
+  border-bottom-right-radius: ${(props) => (props.maxed ? "inherit" : "0")}; /* This may work better in large mode than overflow-hidden. */
 `;
 
 export default ProgressBar;
