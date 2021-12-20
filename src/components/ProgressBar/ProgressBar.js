@@ -47,6 +47,7 @@ const ProgressWrapper = styled.div`
   width: 100%;
   background: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
+  overflow: hidden; /* Avoid the inner bar going outside of the rounded border. */
 `;
 
 const ProgressBarInner = styled.div`
@@ -54,8 +55,6 @@ const ProgressBarInner = styled.div`
   height: 100%;
   width: ${(props) => props.value}%;
   border-radius: inherit;
-  border-top-right-radius: ${(props) => (props.maxed ? "inherit" : "0")};
-  border-bottom-right-radius: ${(props) => (props.maxed ? "inherit" : "0")};
 `;
 
 export default ProgressBar;
